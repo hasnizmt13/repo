@@ -4,21 +4,21 @@ const mysql = require('mysql')
 const bcrypt = require('bcryptjs')
 const router = express.Router()
 
-const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '123456789',
-    database: 'projet_bdd'
-})
+// const db = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'root',
+//     password: '123456789',
+//     database: 'projet_bdd'
+// })
 var erreur = {}
 router.post('/signup/', (req, res) => {
-    var nm = req.body.nom
-    var prnm = req.body.prenom
-    var adrss_email = req.body.e_mail 
-    var mp = req.body.mdpss
-    var mp2 = req.body.mdpss2
-    var srv = req.body.srvc
-    var type = req.body.tp 
+    // var nm = req.body.nom
+    // var prnm = req.body.prenom
+    // var adrss_email = req.body.e_mail 
+    // var mp = req.body.mdpss
+    // var mp2 = req.body.mdpss2
+    // var srv = req.body.srvc
+    // var type = req.body.tp 
     
     erreur.username = ''
     erreur.userprenom = ''
@@ -63,39 +63,39 @@ router.post('/signup/', (req, res) => {
             console.log('EMAIL INVALID')
         } 
         else {
-        db.query('SELECT email FROM user WHERE email = ?', [adrss_email], async (error, results) => {
-            if (error) {console.log('la 1: '+error.message)}
+    //     db.query('SELECT email FROM user WHERE email = ?', [adrss_email], async (error, results) => {
+    //         if (error) {console.log('la 1: '+error.message)}
 
-            if (results.length > 0) {
-                erreur.email = 'EXISTE DEJA ';
-                console.log("existe deja")
-                ////
-                ////
-            }      
-            if (mp.length < 8){
-                erreur.password = 'MOT DE PASS Au moins 8 CARATERER'
-                console.log('MOT DE PASS 8 CARATERER')
-            }
-            if (mp != mp2){
-                erreur.password2 = 'MOT DE PASSE Incorrect'
-                console.log('MOT DE PASSE INCORRECT ')
-            }
-            if (mp != mp2 || results.length > 0 || mp.length <8){
-                console.log('erreur de creation du compte')
-            }
-            else {
-                const hashedpsswrd = await bcrypt.hash( mp, 8)
-                const sqlinsert = "INSERT INTO user SET id_user = DEFAULT ,nom=? , prenom=? , email=? , password=? , service=? , type=? ,create_time=DEFAULT"
-                db.query(sqlinsert, [nm, prnm, adrss_email, hashedpsswrd, srv, type], (error, results) => {
-                    if (error) {
-                        console.log('la 2: '+error.message)
-                    } else {
-                        console.log('user registered')
-                    }
-                })
-            }
-        })
-     }
+    //         if (results.length > 0) {
+    //             erreur.email = 'EXISTE DEJA ';
+    //             console.log("existe deja")
+    //             ////
+    //             ////
+    //         }      
+    //         if (mp.length < 8){
+    //             erreur.password = 'MOT DE PASS Au moins 8 CARATERER'
+    //             console.log('MOT DE PASS 8 CARATERER')
+    //         }
+    //         if (mp != mp2){
+    //             erreur.password2 = 'MOT DE PASSE Incorrect'
+    //             console.log('MOT DE PASSE INCORRECT ')
+    //         }
+    //         if (mp != mp2 || results.length > 0 || mp.length <8){
+    //             console.log('erreur de creation du compte')
+    //         }
+    //         else {
+    //             const hashedpsswrd = await bcrypt.hash( mp, 8)
+    //             const sqlinsert = "INSERT INTO user SET id_user = DEFAULT ,nom=? , prenom=? , email=? , password=? , service=? , type=? ,create_time=DEFAULT"
+    //             db.query(sqlinsert, [nm, prnm, adrss_email, hashedpsswrd, srv, type], (error, results) => {
+    //                 if (error) {
+    //                     console.log('la 2: '+error.message)
+    //                 } else {
+    //                     console.log('user registered')
+    //                 }
+    //             })
+    //         }
+    //     })
+      }
     }
 })
 var errors = {}
@@ -109,13 +109,13 @@ router.post('/login/', async (req, res) => {
     errors.email = ''
     errors.password = ''
 
-    info.id = ''
-    info.nom = ''
-    info.prenom = ''
-    info.email = ''
-    info.pssword = ''
-    info.service = ''
-    info.role = ''
+    info.id = '1'
+    info.nom = 'morad'
+    info.prenom = 'larbi'
+    info.email = 'morad@gmail.com'
+    info.pssword = '123456789'
+    info.service = 'comptable'
+    info.role = 'consultant'
     info.CT = ''
 
     if (!adrss_email ){
@@ -131,27 +131,27 @@ router.post('/login/', async (req, res) => {
         console.log('LE VIDE DANS LES 2')
     }
     else{
-         db.query('SELECT * FROM user WHERE email = ?', [adrss_email], async (error, results) => {
-         if (error) {
-             console.log(error.message)
-         }
-         if ( (results.length == 0) || !(await bcrypt.compare(mp, results[0].password)) ) {
-             errors.email = 'inexistant !!'
-         } else {
-             /////////
-             ////////
-             info.id = results[0].id_user
-             info.nom = results[0].nom
-             info.prenom = results[0].prenom
-             info.email = results[0].email
-             info.pssword = results[0].password
-             info.service = results[0].service
-             info.role = results[0].type
-             info.CT = results[0].create_time
+    //      db.query('SELECT * FROM user WHERE email = ?', [adrss_email], async (error, results) => {
+    //      if (error) {
+    //          console.log(error.message)
+    //      }
+    //      if ( (results.length == 0) || !(await bcrypt.compare(mp, results[0].password)) ) {
+    //          errors.email = 'inexistant !!'
+    //      } else {
+    //          /////////
+    //          ////////
+    //          info.id = results[0].id_user
+    //          info.nom = results[0].nom
+    //          info.prenom = results[0].prenom
+    //          info.email = results[0].email
+    //          info.pssword = results[0].password
+    //          info.service = results[0].service
+    //          info.role = results[0].type
+    //          info.CT = results[0].create_time
             
-             console.log('WELCOME TO YOUR PROFILE')
-         }
-     })        
+    //          console.log('WELCOME TO YOUR PROFILE')
+    //      }
+    //  })        
         
     }
 

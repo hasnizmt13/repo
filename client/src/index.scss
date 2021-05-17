@@ -710,35 +710,51 @@ body {
                                  "d e f"
                                  "g h i"
                                  "j j j"
-                                 "k l m";
+                                 "k l ."
+                                 "m n o";
             gap: 20px 50px;
-
-            .dateFacPer-container {
+            .date-debut-container {
               grid-area: a;
             }
-            .numFacPer-container {
+            .dateFacPer-container {
               grid-area: b;
             }
-            .numFacDef-container {
+            .numFacPer-container {
               grid-area: c;
             }
-            .dateCom-container {
+            .numFacDef-container {
               grid-area: d;
             }
-            .numCom-container {
+            .dateCom-container {
               grid-area: e;
             }
-            .numBon-container {
+            .numCom-container {
               grid-area: f;
             }
-            .respo-container {
+            .numBon-container {
               grid-area: g;
             }
-            .montant-container {
+            .respo-container {
               grid-area: h;
             }
-            .date-send {
+            .montant-container {
               grid-area: i;
+            }
+            .date-limite-container {
+              grid-area: l;
+
+              #retard {
+                border: 1px solid red;
+                 input {
+                   color: red;
+                 }
+              }
+              #avance {
+                border: 1px solid green;
+                 input {
+                   color: green;
+                 }
+              }
             }
             .desc-container {
               grid-area: j;
@@ -747,10 +763,13 @@ body {
               grid-area: k;
             }
             .btn-send {
-              grid-area: m;
+              grid-area: o;
             }
             .btn-arreter {
-              grid-area: l;
+              grid-area: n;
+            }
+            .btn-sauv {
+              grid-area: m;
             }
             .cont {
               display: flex;
@@ -807,6 +826,41 @@ body {
                 }
               }
 
+            }
+            .btn-sauv {
+              display: flex;
+              justify-content: flex-end;
+              align-items: center;
+
+              button {
+                
+                border-radius: 10px;
+                border: none;
+                background-color: #13d188;
+                font-size: 12px;
+                font-weight: bold;
+                padding: 12px 45px;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                transition: transform 80ms ease-in;
+                
+                
+              }
+                button:active {
+                  transform: scale(0.95);
+                }
+                
+                button:focus {
+                  outline: none;
+                  cursor: pointer;
+                }
+                button:hover {
+                  cursor: pointer;
+                }
+                button.ghost {
+                  background-color: transparent;
+                  border-color: #FFFFFF;
+                }
             }
             .btn-send {
               display: flex;
@@ -883,42 +937,64 @@ body {
           display: grid;
             grid-template-rows: repeat(5,1fr);
             grid-template-columns: repeat(3,1fr);
-            grid-template-areas: "a b ."
-                                 "c d e"
-                                 "f f f"
+            grid-template-areas: "a b c"
+                                 "d e f"
                                  "g g g"
-                                 "h i j";
+                                 "h h h"
+                                 "i j ."
+                                 "k l m";
             gap: 20px 50px;
-
-            .respo-container {
+            .date-debut-container {
               grid-area: a;
             }
-            .date-container {
+            .respo-container {
               grid-area: b;
             }
-            .dateCF-container {
+            .date-container {
               grid-area: c;
             }
-            .dateVisa-container {
+            .dateCF-container {
               grid-area: d;
             }
-            .dateMend-container {
+            .dateVisa-container {
               grid-area: e;
             }
-            .motif-container {
+            .dateMend-container {
               grid-area: f;
             }
-            .desc-container {
+            .motif-container {
               grid-area: g;
             }
-            .file-container {
+            .desc-container {
               grid-area: h;
             }
-            .btn-send {
+            .file-container {
+              grid-area: i;
+            }
+            .date-limite-container {
               grid-area: j;
+
+              #retard {
+                border: 1px solid red;
+                 input {
+                   color: red;
+                 }
+              }
+              #avance {
+                border: 1px solid green;
+                 input {
+                   color: green;
+                 }
+              }
+            }
+            .btn-send {
+              grid-area: m;
             }
             .btn-arreter {
-              grid-area: i;
+              grid-area: l;
+            }
+            .btn-sauv {
+              grid-area: k;
             }
             .cont {
               display: flex;
@@ -975,6 +1051,41 @@ body {
                 }
               }
 
+            }
+            .btn-sauv {
+              display: flex;
+              justify-content: flex-end;
+              align-items: center;
+
+              button {
+                
+                border-radius: 10px;
+                border: none;
+                background-color: #13d188;
+                font-size: 12px;
+                font-weight: bold;
+                padding: 12px 45px;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                transition: transform 80ms ease-in;
+                
+                
+              }
+                button:active {
+                  transform: scale(0.95);
+                }
+                
+                button:focus {
+                  outline: none;
+                  cursor: pointer;
+                }
+                button:hover {
+                  cursor: pointer;
+                }
+                button.ghost {
+                  background-color: transparent;
+                  border-color: #FFFFFF;
+                }
             }
             .btn-send {
               display: flex;
@@ -1048,40 +1159,63 @@ body {
         }
         .respo-form {
           display: grid;
-            grid-template-rows: repeat(4,1fr);
+            grid-template-rows: repeat(5,1fr);
             grid-template-columns: repeat(3,1fr);
-            grid-template-areas: "a b ."
-                                 "c d e"
-                                 "f f f"
-                                 "g h i ";
+            grid-template-areas: "a b c"
+                                 "d e f"
+                                 "g g g"
+                                 "h i ."
+                                 "j k l";
             gap: 20px 50px;
-
-            .respo-container {
+            .date-debut-container {
               grid-area: a;
             }
-            .date-container {
+            .respo-container {
               grid-area: b;
             }
-            .completer-container {
+            .date-container {
               grid-area: c;
             }
-            .dateComplement-container {
+            .completer-container {
               grid-area: d;
             }
-            .datePay-container {
+            .dateComplement-container {
               grid-area: e;
             }
-            .desc-container {
+            .datePay-container {
               grid-area: f;
             }
-            .file-container {
+            .desc-container {
               grid-area: g;
             }
-            .btn-send {
+            .file-container {
+              grid-area: h;
+            }
+            .date-limite-container {
               grid-area: i;
+              
+              #retard {
+                border: 1px solid red;
+                 input {
+                   color: red;
+                 }
+              }
+              #avance {
+                border: 1px solid green;
+                 input {
+                   color: green;
+                 }
+              }
+
+            }
+            .btn-send {
+              grid-area: l;
             }
             .btn-arreter {
-              grid-area: h;
+              grid-area: k;
+            }
+            .btn-sauv {
+              grid-area: j;
             }
             .cont {
               display: flex;
@@ -1138,6 +1272,41 @@ body {
                 }
               }
 
+            }
+            .btn-sauv {
+              display: flex;
+              justify-content: flex-end;
+              align-items: center;
+
+              button {
+                
+                border-radius: 10px;
+                border: none;
+                background-color: #13d188;
+                font-size: 12px;
+                font-weight: bold;
+                padding: 12px 45px;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                transition: transform 80ms ease-in;
+                
+                
+              }
+                button:active {
+                  transform: scale(0.95);
+                }
+                
+                button:focus {
+                  outline: none;
+                  cursor: pointer;
+                }
+                button:hover {
+                  cursor: pointer;
+                }
+                button.ghost {
+                  background-color: transparent;
+                  border-color: #FFFFFF;
+                }
             }
             .btn-send {
               display: flex;

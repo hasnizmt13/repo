@@ -7,17 +7,17 @@ const { urlencoded } = require('express')
 
 const application = express()
 
-const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '123456789',
-    database: 'projet_bdd'
-})
+// const db = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'root',
+//     password: '123456789',
+//     database: 'projet_bdd'
+// })
 
-db.connect((err) => {
-    if (err) {console.log(err.message)}
-    else {console.log("MYSQL connected...")}
-})
+// db.connect((err) => {
+//     if (err) {console.log(err.message)}
+//     else {console.log("MYSQL connected...")}
+// })
 
 application.use(cors())
 application.use(express.json())
@@ -73,7 +73,16 @@ usersRoute =  (req, res) => {
 infoRoute = (req, res) => {
     res.json({
         infor: {
-            numDoss: nmrDoss.numero
+            numDoss: nmrDoss.numero,
+            marcheDoss: [1, 2, 3],
+            commandeDoss: [4, 5, 9],
+            budgetDoss: [12, 15, 16],
+            comptableDoss: [14, 15, 17]
+        },
+        comptableInfo: {
+            respo: "morad",
+            completer: "beyna",
+            desc: "haka"
         }
     })
 }

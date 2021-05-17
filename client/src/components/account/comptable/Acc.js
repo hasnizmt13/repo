@@ -1,23 +1,71 @@
-import React from 'react'
+import { useState, useEffect } from 'react'
 import "../../../index.css"
 import useForm from './useForm'
 import validation from './validation'
 import moment from 'react-moment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFileDownload } from '@fortawesome/free-solid-svg-icons'
-const Acc = ({submitForm, arreter, page}) => {
+const Acc = (props) => {
     const { handleChange, handleSubmit, values, errors } = useForm(
-        submitForm,
-        validation,
-        page
-      );
+        validation
+    );
+    var numDoss = props.match.params.id;
+    var duree = 2;
+    var date = new Date()
+    var debutDate = date.getFullYear()+'-'
+    if (date.getMonth()<10){
+        debutDate += '0'+date.getMonth()+'-'
+    }
+    else {
+        debutDate += date.getMonth()+'-'+date.getDate();
+    }
+    if (date.getDate() < 10){
+        debutDate += '0'+date.getDate()
+    }
+    else{
+        debutDate += date.getDate();
+    }
+    var date2 = new Date(date.getTime() +(duree*24*60*60*1000))
+    var limiteDate = date2.getFullYear()+'-'
+    if (date2.getMonth()<10){
+        limiteDate += '0'+date2.getMonth()+'-'
+    }
+    else {
+        limiteDate += date2.getMonth()+'-';
+    }
+    if (date2.getDate() < 10){
+        limiteDate += '0'+date2.getDate()
+    }
+    else{
+        limiteDate += date2.getDate();
+    }
+    var current = new Date()
+    var idDate = 'avance'
+    if (current.getTime() > date2.getTime()){
+        idDate = 'retard'
+    }
+    
     return (
         <div className="acc-container">
 
             
             <div className="form-container">
-                <h1>Dossier n°1: Service comptable</h1>
+                <h2>Remplissez ce formulaire </h2>
+                <h1>Dossier n°{numDoss}: Service comptablilité</h1>
                 <form onSubmit={handleSubmit} className="respo-form" noValidate>
+                    <div className="cont date-debut-container">
+                        <div className="content">
+                                                    
+                            <input 
+                                type= "date"
+                                value={debutDate} 
+                                name="date"
+
+                                className="date"/>
+                        </div>
+                        {errors.date && <p className="err-txt">{errors.date}</p>}
+                        
+                    </div>
                     <div className="cont respo-container">
                         <div className=" content">
                         <input 
@@ -109,11 +157,26 @@ const Acc = ({submitForm, arreter, page}) => {
                             </label>
                         </div>
                     </div>
+                    <div className="cont date-limite-container">
+                        <div className="content" id={idDate}>
+                                                       
+                            <input 
+                                type= "date"
+                                value={limiteDate} 
+                                name="date"
+                                className="date2"/>
+                        </div>
+                        {errors.date && <p className="err-txt">{errors.date}</p>}
+                        
+                    </div>
+                    <div className="btn-sauv">
+                        <button type="submit" className="btn-done" > Sauvegarder </button>
+                    </div>
                     <div className="btn-send">
-                        <button type="submit" onClick={submitForm} className="btn-send" > Envoyer </button>
+                        <button type="submit" className="btn-done" > Envoyer </button>
                     </div>
                     <div className="btn-arreter">
-                        <button type="" onClick={arreter} className="btn-" > Annuler </button>
+                        <button className="btn-done" > Annuler </button>
                     </div>
                 </form>
             </div>

@@ -13,6 +13,25 @@ const useForm = (callback, validate, page) => {
     file: '',
 
   });
+  useEffect(() => {
+    fetch("/infor/").then( res => {
+        if (res.ok) {
+            return res.json()
+        }
+    }).then(jsonRes => {
+        if (jsonRes !== undefined){
+            setValues({...values,
+                respo: jsonRes.comptableInfo.respo,
+                completer: jsonRes.comptableInfo.completer,
+                desc: jsonRes.comptableInfo.desc
+            }) 
+        }
+             
+        
+    })
+    
+    
+})
   const [errors, setErrors] = useState({});
   
 
