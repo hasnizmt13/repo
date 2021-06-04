@@ -20,7 +20,7 @@ let useClickOutside = (handler1) => {
     });
     return menutri;
 }
-const Milieu = ({ userInfo }) => {
+const Milieub = ({ userInfo }) => {
     var debutDate
     const [x, setx] = useState(false);
     const [Num, setNum] = useState([])
@@ -51,7 +51,7 @@ const Milieu = ({ userInfo }) => {
         }).then(jsonRes => {
             if (jsonRes !== undefined) {
                 setNumDoss(jsonRes.infor.numDoss)
-                setNum(jsonRes.infor.marcheDoss)
+                setNum(jsonRes.infor.budgetDoss)
                 if (Num !== []){
                     setx(true)
                 }
@@ -65,22 +65,19 @@ const Milieu = ({ userInfo }) => {
         settrier(false);
     }
     )
-    
     return (
         <div className="partie-milieu">
 
             <h3> Bienvenue dans votre espace de travail dans le service {userInfo.role}!</h3>
-            <p>Ajoutez des nouveaux dossiers et commencez à travailler en remplissant les formulaires puis les transferer au service commande.</p>
+            <p>Vous pouvez consultez tous les dossiers en cours dans cette page</p>
             <div className="content-marche">
                 <div className="btn-contain">
-                    <div className="nouveau">
-                        <button className="new" onClick={addChild}>
-                            <p>Nouveau +</p>
-                        </button>
+                    <div>
+
                     </div>
                     <div className="searchbar">
                         <form class="example" >
-                            <input type="text" placeholder="   Rechercher.." name="search2" />
+                            <input type="text" placeholder="Rechercher.." name="search2" />
                             <button type="submit" className="button"><FontAwesomeIcon icon={faSearch} className="icon" /></button>
                         </form>
                     </div>
@@ -98,12 +95,13 @@ const Milieu = ({ userInfo }) => {
                 <div ref={menutri}>
                     {trier && (<Trier />)}
                 </div>
-                <div className="titles">
+                <div className="titles" onClick={addChild}>
                     <span>Numéro de dossier</span>
                     <span>Dernière modification</span>
                     <span>Date limite</span>
                     <span>Avancement</span>
                     <span className="final">Formulaire</span>
+
                 </div>
 
                 {
@@ -119,9 +117,6 @@ const Milieu = ({ userInfo }) => {
 
 
         </div>
-
-
-    );
-
+    )
 };
-export default Milieu;
+export default Milieub;

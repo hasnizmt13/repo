@@ -1,9 +1,9 @@
-import Head from "../commun/header"
-import Droite from "../commun/droite"
-import Foot from "../commun/footer"
-import Milieuarc from "../commun/milieuarchive"
+import Header from "../commun/Header"
+import Droite from "../commun/Droite"
+import Footer from "../commun/Footer"
+import Milieuarc from "../commun/Milieuarc"
 import { useState, useEffect } from 'react'
-const archive = () => {
+const Archive = () => {
     /*const [userInfo, setUserInfo] = useState({id: '', nom: '', prenom: '',email: '',psswrd: '',service: '',role: '',CT: ''})
     const [userIn, setUserIn] = useState({id: '', nom: '', prenom: '',email: '',psswrd: '',service: '',role: '',CT: ''})
     useEffect(() => {
@@ -35,28 +35,17 @@ const archive = () => {
         email: 'email@gmail.com',
         role: 'marché'
     };
-    const serviceinfo = {
-
-        x1: 'nav-el',
-        link1: './marche',
-        x2: "actif",
-        link2: '#',
-        x3: "nav-el",
-        link3: './statistiques',
-        x4: "nav-el",
-        link4: './dossiers-en-cours'
-
-    }
+    const serviceinfo = './Marché';
     return (
         <div className="marche" >
-            <Head userInfo={userInfo} serviceinfo={serviceinfo} />
+            <Header userInfo={userInfo} serviceinfo={serviceinfo} />
             <div className="noyeau-marche">
 
-                <Droite />
+                <Droite serviceinfo='./Archive' />
                 < Milieuarc />
             </div>
-            <Foot />
+            <Footer />
         </div>
     )
 }
-export default archive;
+export default Archive;

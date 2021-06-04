@@ -20,7 +20,7 @@ let useClickOutside = (handler1) => {
     });
     return menutri;
 }
-const Milieu = ({ userInfo }) => {
+const Milieuc = ({ userInfo }) => {
     var debutDate
     const [x, setx] = useState(false);
     const [Num, setNum] = useState([])
@@ -51,26 +51,23 @@ const Milieu = ({ userInfo }) => {
         }).then(jsonRes => {
             if (jsonRes !== undefined) {
                 setNumDoss(jsonRes.infor.numDoss)
-                setNum(jsonRes.infor.marcheDoss)
+                setNum(jsonRes.infor.commandeDoss)
                 if (Num !== []){
                     setx(true)
                 }
             }
         })
-
-
     })
     const [trier, settrier] = useState(false);
     let menutri = useClickOutside(() => {
         settrier(false);
     }
     )
-    
     return (
         <div className="partie-milieu">
 
             <h3> Bienvenue dans votre espace de travail dans le service {userInfo.role}!</h3>
-            <p>Ajoutez des nouveaux dossiers et commencez à travailler en remplissant les formulaires puis les transferer au service commande.</p>
+            <p>Ajoutez des nouveaux dossiers et commencez à travailler en remplissant les formulaires</p>
             <div className="content-marche">
                 <div className="btn-contain">
                     <div className="nouveau">
@@ -119,9 +116,7 @@ const Milieu = ({ userInfo }) => {
 
 
         </div>
-
-
     );
 
 };
-export default Milieu;
+export default Milieuc;

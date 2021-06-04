@@ -1,9 +1,8 @@
+import AccSettings from "./AccSettings.js"
 import Header from "../commun/Header"
-import Droite from "../commun/Droite"
 import Footer from "../commun/Footer"
-import Milieusta from "../commun/Milieusta"
-//import { useState, useEffect } from 'react'
-const Statistique = () => {
+import { useState, useEffect } from 'react'
+const Settingsm = () => {
     /*const [userInfo, setUserInfo] = useState({id: '', nom: '', prenom: '',email: '',psswrd: '',service: '',role: '',CT: ''})
     const [userIn, setUserIn] = useState({id: '', nom: '', prenom: '',email: '',psswrd: '',service: '',role: '',CT: ''})
     useEffect(() => {
@@ -35,17 +34,18 @@ const Statistique = () => {
         email: 'email@gmail.com',
         role: 'marché'
     };
-    const serviceinfo = './Marché';
+    const serviceinfo = '#';
     return (
         <div className="marche" >
             <Header userInfo={userInfo} serviceinfo={serviceinfo} />
             <div className="noyeau-marche">
 
-                <Droite serviceinfo='./Statistiques' />
-                <Milieusta />
+                <AccSettings />
             </div>
             <Footer />
         </div>
     )
 }
-export default Statistique;
+export default Settingsm;
+
+

@@ -1,11 +1,10 @@
-import Head from "../commun/header.js"
-import Droite from "../commun/droite.js"
-import Milieub from "./Milieucommande"
-import Foot from "../commun/footer"
+import Header from "../commun/Header.js"
+import Droite from "../commun/Droite.js"
+import Milieuc from "./Milieuc"
+import Footer from "../commun/Footer"
 import { useState, useEffect } from 'react'
 const Commande = () => {
     const [userInfo, setUserInfo] = useState({id: '', nom: '', prenom: '',email: '',psswrd: '',service: '',role: '',CT: ''})
-    const [userIn, setUserIn] = useState({id: '', nom: '', prenom: '',email: '',psswrd: '',service: '',role: '',CT: ''})
     useEffect(() => {
         fetch("/users/").then( res => {
             if (res.ok) {
@@ -26,29 +25,29 @@ const Commande = () => {
             }
                  
             
-        })
-        
+        })   
         
     })
-    const serviceinfo = {
-
-        x1: 'actif',
-        link1: '#',
-        x2: "nav-el",
-        link2: './archive',
-        x3: "nav-el",
-        link3: './statistiques',
-        x4: "nav-el",
-        link4: './dossiers-en-cours'
-
-    }
+    const [num, setNum] = useState([])
+    useEffect(() => {
+        fetch("/infor/").then(res => {
+            if (res.ok) {
+                return res.json()
+            }
+        }).then(jsonRes => {
+            if (jsonRes !== undefined) {
+                setNum(jsonRes.infor.commandeDoss)
+            }
+        })
+    })
     return (
         <div className="marche" >
-            <Head userInfo={userInfo} serviceinfo={serviceinfo} />
+            <Header userInfo={userInfo} serviceinfo={userInfo.service} num={num} />
             <div className="noyeau-marche">
-                <Droite />
-                <Milieub userInfo={userInfo} />
+                <Droite serviceinfo={userInfo.service} />
+                <Milieuc userInfo={userInfo} />
             </div>
+            <Footer />
         </div>
     )
 }

@@ -1,7 +1,6 @@
-const Notif = () => {
-    const num = 3;
+const Notif = ({ num }) => {
     if (num > 0) {
-        return (<div> { num}  </div>);
+        return (<div></div>);
     } else {
         return (null);
     }

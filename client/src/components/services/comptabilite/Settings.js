@@ -1,10 +1,9 @@
-import Head from "../commun/header.js"
-import Droite from "../commun/droite.js"
-import Milieu from "./milieu.js"
-import Foot from "../commun/footer"
+import AccSettings from "./AccSettings.js"
+import Header from "../commun/Header"
+import Footer from "../commun/Footer"
 import { useState, useEffect } from 'react'
-const Marche = () => {
-    const [userInfo, setUserInfo] = useState({id: '', nom: '', prenom: '',email: '',psswrd: '',service: '',role: '',CT: ''})
+const Settingscp = () => {
+    /*const [userInfo, setUserInfo] = useState({id: '', nom: '', prenom: '',email: '',psswrd: '',service: '',role: '',CT: ''})
     const [userIn, setUserIn] = useState({id: '', nom: '', prenom: '',email: '',psswrd: '',service: '',role: '',CT: ''})
     useEffect(() => {
         fetch("/users/").then( res => {
@@ -29,28 +28,24 @@ const Marche = () => {
         })
         
         
-    })
-    const serviceinfo = {
-
-        x1: 'actif',
-        link1: '#',
-        x2: "nav-el",
-        link2: './archive',
-        x3: "nav-el",
-        link3: './statistiques',
-        x4: "nav-el",
-        link4: './dossiers-en-cours'
-
-    }
+    })*/
+    const userInfo = {
+        nom: 'nom prenom',
+        email: 'email@gmail.com',
+        role: 'comptabilité'
+    };
+    const serviceinfo = '#';
     return (
         <div className="marche" >
-            <Head userInfo={userInfo} serviceinfo={serviceinfo} />
+            <Header userInfo={userInfo} serviceinfo={serviceinfo} />
             <div className="noyeau-marche">
-                <Droite />
-                <Milieu userInfo={userInfo} />
+
+                <AccSettings />
             </div>
-        
+            <Footer />
         </div>
     )
 }
-export default Marche;
+export default Settingscp;
+
+

@@ -2,7 +2,7 @@ export default function validateInfo(values) {
     let errors = {};
     
     if (!values.type) {
-      errors.type = 'Type requit';
+      errors.type = 'Type de la préstation est obligatoire';
     } 
     if (!values.objet) {
       errors.objet = 'objet requit';
@@ -16,6 +16,10 @@ export default function validateInfo(values) {
     if (!values.num) {
         errors.num = 'numero requit';
     } 
+    
+    if (!values.decis) {
+      errors.decis = 'Décision est obligatoire';
+  }
     
     return errors;
   }

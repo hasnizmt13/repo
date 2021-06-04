@@ -1,9 +1,8 @@
 import Header from "../commun/Header"
 import Droite from "../commun/Droite"
 import Footer from "../commun/Footer"
-import Milieusta from "../commun/Milieusta"
-//import { useState, useEffect } from 'react'
-const Statistique = () => {
+import { useState, useEffect } from 'react'
+const Comptecp = () => {
     /*const [userInfo, setUserInfo] = useState({id: '', nom: '', prenom: '',email: '',psswrd: '',service: '',role: '',CT: ''})
     const [userIn, setUserIn] = useState({id: '', nom: '', prenom: '',email: '',psswrd: '',service: '',role: '',CT: ''})
     useEffect(() => {
@@ -33,19 +32,21 @@ const Statistique = () => {
     const userInfo = {
         nom: 'nom prenom',
         email: 'email@gmail.com',
-        role: 'marché'
+        role: 'Comptabilité'
     };
-    const serviceinfo = './Marché';
+    const serviceinfo = '#';
     return (
         <div className="marche" >
             <Header userInfo={userInfo} serviceinfo={serviceinfo} />
             <div className="noyeau-marche">
 
-                <Droite serviceinfo='./Statistiques' />
-                <Milieusta />
+                <Droite serviceinfo="./Comptable" />
+                <div>
+                    <h2>   Mon Compte</h2>
+                </div>
             </div>
             <Footer />
         </div>
     )
 }
-export default Statistique;
+export default Comptecp;

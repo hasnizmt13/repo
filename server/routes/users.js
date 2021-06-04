@@ -114,8 +114,8 @@ router.post('/login/', async (req, res) => {
     info.prenom = 'larbi'
     info.email = 'morad@gmail.com'
     info.pssword = '123456789'
-    info.service = 'comptable'
-    info.role = 'consultant'
+    info.service = 'commande'
+    info.role = 'modifier'
     info.CT = ''
 
     if (!adrss_email ){

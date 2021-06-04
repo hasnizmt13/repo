@@ -1,9 +1,9 @@
-import Head from "../commun/header"
-import Droite from "../commun/droite"
-import Foot from "../commun/footer"
-import Milieusta from "../commun/milieustatistiques"
+import Header from "../commun/Header"
+import Droite from "../commun/Droite"
+import Footer from "../commun/Footer"
+import Milieusta from "../commun/Milieusta"
 import { useState, useEffect } from 'react'
-const statistique_cp = () => {
+const Statistiquecp = () => {
     /*const [userInfo, setUserInfo] = useState({id: '', nom: '', prenom: '',email: '',psswrd: '',service: '',role: '',CT: ''})
     const [userIn, setUserIn] = useState({id: '', nom: '', prenom: '',email: '',psswrd: '',service: '',role: '',CT: ''})
     useEffect(() => {
@@ -35,28 +35,17 @@ const statistique_cp = () => {
         email: 'email@gmail.com',
         role: 'comptabilité'
     };
-    const serviceinfo = {
-
-        x1: 'nav-el',
-        link1: './comptable',
-        x2: "nav-el",
-        link2: './archive',
-        x3: "actif",
-        link3: '#',
-        x4: "nav-el",
-        link4: './dossiers-en-cours'
-
-    }
+    const serviceinfo = './Comptable';
     return (
         <div className="marche" >
-            <Head userInfo={userInfo} serviceinfo={serviceinfo} />
+            <Header userInfo={userInfo} serviceinfo={serviceinfo} />
             <div className="noyeau-marche">
 
-                <Droite />
+                <Droite serviceinfo='./Statistiques' />
                 <Milieusta />
             </div>
-            <Foot />
+            <Footer />
         </div>
     )
 }
-export default statistique_cp
+export default Statistiquecp

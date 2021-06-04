@@ -1,18 +1,19 @@
 import { useState, useEffect } from 'react';
 import validateInfo from './validation.js'
 
-const useForm = (callback, validate,page) => {
+const useForm = (validate) => {
   const [values, setValues] = useState({
-
+    decis: '',
     dateFacPe: '',
     numFacPer: '',
     numFacDef: '',
     respo: '',
     numCom: '',
     dateCom: '',
-    numBon: '',
     montant: '',
-    date: '',
+    datePr: '',
+    numBonRec: '',
+    dateTr: '',
     desc: '',
     file: '',
 
@@ -32,8 +33,7 @@ const useForm = (callback, validate,page) => {
     e.preventDefault();
 
     setErrors(validateInfo(values));
-    callback();
-    console.log(page);
+    
   };
 
   /*useEffect(

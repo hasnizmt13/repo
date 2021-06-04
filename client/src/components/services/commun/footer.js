@@ -1,17 +1,17 @@
 import './Style_sheet.css'
-const Foot = () => {
+const Footer = () => {
     return (
         <div className="foot">
             <div className="footer-container">
                 <div className="right-side">
                     <p>
                         Copyright © 2021
-                </p>
+                    </p>
 
                 </div>
                 <div className="left-side">
                     <div className="elem">
-                        <a href="">Aide en ligne </a>
+                        <a href="/Aide">Aide en ligne </a>
                         <a href="mailto:contact@esi.dz ">Contactez nous</a>
                     </div>
                 </div>
@@ -20,4 +20,4 @@ const Foot = () => {
     )
 }
 
-export default Foot
+export default Footer

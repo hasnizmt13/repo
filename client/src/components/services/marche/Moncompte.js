@@ -1,9 +1,8 @@
-import Head from "../commun/header.js"
-import Droite from "../commun/droite.js"
-import Foot from "../commun/footer"
-import Milieudos from "./milieudossC"
+import Header from "../commun/Header"
+import Droite from "../commun/Droite"
+import Footer from "../commun/Footer"
 import { useState, useEffect } from 'react'
-const doss_cours = () => {
+const CompteM = () => {
     /*const [userInfo, setUserInfo] = useState({id: '', nom: '', prenom: '',email: '',psswrd: '',service: '',role: '',CT: ''})
     const [userIn, setUserIn] = useState({id: '', nom: '', prenom: '',email: '',psswrd: '',service: '',role: '',CT: ''})
     useEffect(() => {
@@ -35,28 +34,19 @@ const doss_cours = () => {
         email: 'email@gmail.com',
         role: 'marché'
     };
-    const serviceinfo = {
-
-        x1: 'nav-el',
-        link1: './marche',
-        x2: "nav-el",
-        link2: './archive',
-        x3: "nav-el",
-        link3: './statistiques',
-        x4: "actif",
-        link4: '#'
-
-    }
+    const serviceinfo = '#';
     return (
         <div className="marche" >
-            <Head userInfo={userInfo} serviceinfo={serviceinfo} />
+            <Header userInfo={userInfo} serviceinfo={serviceinfo} />
             <div className="noyeau-marche">
 
-                <Droite />
-                <Milieudos />
+                <Droite serviceinfo="./Marché" />
+                <div>
+                    <h2>   Mon Compte</h2>
+                </div>
             </div>
-            <Foot />
+            <Footer />
         </div>
     )
 }
-export default doss_cours;
+export default CompteM;

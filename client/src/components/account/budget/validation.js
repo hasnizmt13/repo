@@ -1,21 +1,18 @@
 export default function validateInfo(values) {
     let errors = {};
     
-    /*if (!values.type) {
-      errors.type = 'Type requit';
+    if (!values.dateCF) {
+      errors.dateCF = "Date d'engagement au pres du CF requit";
     } 
-    if (!values.objet) {
-      errors.objet = 'objet requit';
-    } 
-    if (!values.fournisseur) {
-        errors.fournisseur = 'respo requit';
+    if (!values.dateMend) {
+      errors.dateMend = "Date de mendatement est requit";
     } 
     if (!values.respo) {
-        errors.respo = 'respo requit';
+        errors.respo = 'Nom du responsable est obligatoire';
     } 
-    if (!values.num) {
-        errors.num = 'numero requit';
-    }*/ 
+    if (!values.dateVisa) {
+        errors.dateVisa = 'Date de visa ou rejet est requise';
+    }
     
     return errors;
   }

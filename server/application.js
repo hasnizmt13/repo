@@ -79,10 +79,10 @@ infoRoute = (req, res) => {
             budgetDoss: [12, 15, 16],
             comptableDoss: [14, 15, 17]
         },
-        comptableInfo: {
+        marcheInfo: {
             respo: "morad",
-            completer: "beyna",
-            desc: "haka"
+            fournisseur: "yoga",
+            objet: "je suis objet"
         }
     })
 }

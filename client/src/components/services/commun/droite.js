@@ -1,85 +1,71 @@
-import './Style_sheet.css'
+import '../../../index.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCog, faExclamationCircle, faFileImport, faHome, faPlus, faPowerOff, faQuestion, faQuestionCircle, faSearch } from '@fortawesome/free-solid-svg-icons'
-import React, { useState } from "react";
-import Dossier from "./Dossier.js"
-const Droite = () => {
-    /* var header = document.getElementById("nav-bar1");
-     var btns = header.getElementsByClassName("lien");
-     for (var i = 0; i < btns.length; i++) {
-         btns[i].addEventListener("click", function () {
-             var current = document.getElementsByClassName("actif");
-             current[0].className = current[0].className.replace(" actif", "");
-             this.className += " actif";
-         });
-     }*/
-    const [more, setmore] = useState(false);
+import { faCog, faExclamationCircle, faFileAlt, faFileImport, faUser, faUserCog } from '@fortawesome/free-solid-svg-icons'
+import { NavLink } from 'react-router-dom'
+const Droite = ({ serviceinfo }) => {
+    /*const [more, setmore] = useState(false);
     var x = "plus";
     if (more) {
         x = "moin"
     }
     else {
         x = "plus"
-    }
+    }*/
     return (
         <div className="partie-contain">
             <div className="partie-droite">
-                <div className="searchbar">
-                    <input type="text" placeholder="rechercher" className="txt"></input>
-                    <i class="search"><FontAwesomeIcon icon={faSearch} className="icon" /></i>
-                </div>
-                <div className="dossiers-recents">
-                    <p> Dossiers Récents </p>
-                    <Dossier />
-                    <Dossier />
-                    {
-                        more && (
-                            <Dossier />
-                        )}
-                    <div className="dossiers-rec-hist">
-                        <button className="more" onClick={() => setmore(curentmore => !curentmore)}>{x}</button>
-                        {more}
-                    </div>
+                <div className="compte">
+                    <nav className="nav-bar1" >
+                        <ul className="lien" >
 
-                </div>
-                <div>
-                    <nav className="nav-bar1" id="nav-bar1">
-                        <ul className="lien">
-                            <FontAwesomeIcon icon={faHome} className="icon" />
                             <li className="elem">
-                                <a href="#" className="home actif">Aceuil </a>
+                                <NavLink to="./Moncompte" className="compte" activeClassName="actif">
+                                    <FontAwesomeIcon icon={faUser} className="icon" />
+                                    Mon compte
+                                </NavLink>
                             </li>
                         </ul>
                         <ul className="lien">
-                            <FontAwesomeIcon icon={faFileImport} className="icon" />
+
                             <li className="elem">
-                                <a href="#" className="download">importer</a>
+                                <NavLink to="./Settings" className="compte" activeClassName="actif">
+                                    <FontAwesomeIcon icon={faUserCog} className="icon" />
+                                   Paramètre du compte
+                                </NavLink>
+                            </li>
+                        </ul>
+                    </nav>
+
+                </div>
+                <div>
+                    <nav className="nav-bar1">
+                        <ul className="lien"  >
+
+                            <li className="elem">
+                                <NavLink to={serviceinfo} className="compte" activeClassName="actif">
+                                    <FontAwesomeIcon icon={faFileAlt} className="icon" />
+                                              Espace de travail
+                                </NavLink>
+                            </li>
+                        </ul>
+                        <ul className="lien">
+
+                            <li className="elem">
+                                <NavLink to="/sdq" className="compte" activeClassName="actif">
+                                    <FontAwesomeIcon icon={faFileImport} className="icon" />
+                                  importer un dossier
+                                </NavLink>
                             </li>
                         </ul>
                     </nav>
                     <nav className="nav-bar2">
                         <ul className="lien">
-                            <FontAwesomeIcon icon={faCog} className="icon" />
-                            <li >
-                                <a href="#" className="settings">Paramètre</a>
-                            </li>
-                        </ul>
-                        <ul className="lien">
-                            <FontAwesomeIcon icon={faQuestionCircle} className="icon" />
-                            <li >
-                                <a href="#" className="help">Aide</a>
-                            </li>
-                        </ul>
-                        <ul className="lien">
-                            <FontAwesomeIcon icon={faExclamationCircle} className="icon" />
-                            <li >
-                                <a href="#" className="about">A propos</a>
-                            </li>
-                        </ul>
-                        <ul className="lien">
-                            <FontAwesomeIcon icon={faPowerOff} className="icon" />
-                            <li >
-                                <a href="#" className="logout">déconnecter</a>
+
+                            <li className="elem">
+                                <NavLink to="/En-savoir-plus" className="compte" activeClassName="actif">
+                                    <FontAwesomeIcon icon={faExclamationCircle} className="icon" />
+                                     A propos
+                                </NavLink>
                             </li>
                         </ul>
                     </nav>

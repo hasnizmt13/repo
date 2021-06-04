@@ -1,11 +1,10 @@
 import Header from "../commun/Header"
 import Droite from "../commun/Droite"
 import Footer from "../commun/Footer"
-import Milieusta from "../commun/Milieusta"
-//import { useState, useEffect } from 'react'
-const Statistique = () => {
-    /*const [userInfo, setUserInfo] = useState({id: '', nom: '', prenom: '',email: '',psswrd: '',service: '',role: '',CT: ''})
-    const [userIn, setUserIn] = useState({id: '', nom: '', prenom: '',email: '',psswrd: '',service: '',role: '',CT: ''})
+import Milieub from "./Milieub"
+import { useState, useEffect } from 'react'
+const Budjet = () => {
+    const [userInfo, setUserInfo] = useState({id: '', nom: '', prenom: '',email: '',psswrd: '',service: '',role: '',CT: ''})
     useEffect(() => {
         fetch("/users/").then( res => {
             if (res.ok) {
@@ -29,23 +28,28 @@ const Statistique = () => {
         })
         
         
-    })*/
-    const userInfo = {
-        nom: 'nom prenom',
-        email: 'email@gmail.com',
-        role: 'marché'
-    };
-    const serviceinfo = './Marché';
+    })
+    const [num, setNum] = useState([])
+    useEffect(() => {
+        fetch("/infor/").then(res => {
+            if (res.ok) {
+                return res.json()
+            }
+        }).then(jsonRes => {
+            if (jsonRes !== undefined) {
+                setNum(jsonRes.infor.budgetDoss)
+            }
+        })
+    })
     return (
         <div className="marche" >
-            <Header userInfo={userInfo} serviceinfo={serviceinfo} />
+            <Header userInfo={userInfo} serviceinfo={userInfo.service} num={num} />
             <div className="noyeau-marche">
-
-                <Droite serviceinfo='./Statistiques' />
-                <Milieusta />
+                <Droite serviceinfo={userInfo.service} />
+                <Milieub userInfo={userInfo} />
             </div>
             <Footer />
         </div>
     )
 }
-export default Statistique;
+export default Budjet;
