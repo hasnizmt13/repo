@@ -1,7 +1,7 @@
 import Header from "../commun/Header.js"
 import Droite from "../commun/Droite.js"
 import Milieub from "./Milieub"
-import Footer from "../commun/Footer"
+import Footer from "../../landing/Footer.js"
 import { useState, useEffect } from 'react'
 const Comptabilite = () => {
     const [userInfo, setUserInfo] = useState({id: '', nom: '', prenom: '',email: '',psswrd: '',service: '',role: '',CT: ''})

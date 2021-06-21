@@ -549,10 +549,11 @@ body .head-mon-serv .resp {
     margin-left: 40px;
     margin-bottom: 40px;
     margin-right: 60px;
+    padding-top: 55px;
 }
 
 .partie-milieu h3 {
-    margin-top: 55px;
+    margin-top: 0px;
     color: #0c48a1;
     align-items: left;
     Vertical-align: Center;
@@ -576,6 +577,7 @@ body .head-mon-serv .resp {
     width: 100%;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
 }
 
 .partie-milieu .btn-contain {

@@ -1,12 +1,12 @@
-import Header from "../commun/Header"
-import Droite from "../commun/Droite"
-import Milieu from "./Milieu.js"
-import Footer from "../../landing/Footer.js"
 import { useState, useEffect } from 'react'
-const Marché = () => {
+import Header from "../services/commun/Header.js"
+import Droite from "../services/commun/Droite.js"
+import Milieu from "./Milieu.js"
+import Footer from "../landing/Footer.js"
+const Archive = () => {
     const [userInfo, setUserInfo] = useState({id: '', nom: '', prenom: '',email: '',psswrd: '',service: '',role: '',CT: ''})
-  const [num, setNum] = useState([])
-  useEffect(() => {
+    const [num, setNum] = useState([])
+    useEffect(() => {
       fetch("/users/").then( res => {
           if (res.ok) {
               return res.json()
@@ -37,21 +37,34 @@ const Marché = () => {
         }
     }).then(jsonRes => {
         if (jsonRes !== undefined) {
-            setNum(jsonRes.infor.marcheDoss)
+            if (userInfo.service === "marche"){
+                setNum(jsonRes.infor.marcheDoss)
+            }
+            if (userInfo.service === "commande"){
+                setNum(jsonRes.infor.commandeDoss)
+            }
+            if (userInfo.service === "budget"){
+                setNum(jsonRes.infor.budgetDoss)
+            }
+            if (userInfo.service === "comptable"){
+                setNum(jsonRes.infor.comptableDoss)
+            }
+            
         }
     })
 })
     
     const serviceinfo = './'+userInfo.service;
     return (
-        <div className="marche" >
+        <div className="marche">
             <Header userInfo={userInfo} serviceinfo={serviceinfo} num={num} />
             <div className="noyeau-marche">
                 <Droite serviceinfo={serviceinfo} />
-                <Milieu userInfo={userInfo} />
+                <Milieu />
             </div>
             <Footer />
         </div>
     )
 }
-export default Marché;
+
+export default Archive

@@ -1,10 +1,9 @@
-import '../commun/Style_sheet.css'
+import '../services/commun/Style_sheet.css'
 import React, { useState, useEffect, useRef } from "react";
-import Dossier from "../commun/Dossier.js"
+import Dossier from "./Dossier.js"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faCaretDown } from '@fortawesome/free-solid-svg-icons'
-import Trier from '../commun/Trier'
-import Axios from 'axios'
+import Trier from '../services/commun/Trier'
 let useClickOutside = (handler1) => {
     let menutri = useRef();
     useEffect(() => {
@@ -20,29 +19,11 @@ let useClickOutside = (handler1) => {
     });
     return menutri;
 }
-const Milieu = ({ userInfo }) => {
-    var debutDate
+
+const Milieu = () => {
     const [x, setx] = useState(false);
     const [Num, setNum] = useState([])
-    function addChild() {
-        Axios.post('http://localhost:3006/doss', {})
-        var showdate = new Date();
-        fetch("/infor/").then( res => {
-            if (res.ok) {
-                return res.json()
-            }
-        }).then(jsonRes => {
-            if (jsonRes !== undefined){
-                setNumDoss(jsonRes.infor.numDoss)
-                setNum(jsonRes.infor.marcheDoss)
-                
-            }  
-        }) 
 
-    }
-
-
-    const [numDoss, setNumDoss] = useState(0)
     useEffect(() => {
         fetch("/infor/").then(res => {
             if (res.ok) {
@@ -50,8 +31,7 @@ const Milieu = ({ userInfo }) => {
             }
         }).then(jsonRes => {
             if (jsonRes !== undefined) {
-                setNumDoss(jsonRes.infor.numDoss)
-                setNum(jsonRes.infor.marcheDoss)
+                setNum(jsonRes.infor.archiveDoss)
                 if (Num !== []){
                     setx(true)
                 }
@@ -65,29 +45,25 @@ const Milieu = ({ userInfo }) => {
         settrier(false);
     }
     )
-    
     return (
         <div className="partie-milieu">
 
-            <h3> Bienvenue dans votre espace de travail dans le service {userInfo.role}!</h3>
-            <p>Ajoutez des nouveaux dossiers et commencez à travailler en remplissant les formulaires puis les transferer au service commande.</p>
             <div className="content-marche">
                 <div className="btn-contain">
                     <div className="nouveau">
-                        <button className="new" onClick={addChild}>
-                            <p>Nouveau +</p>
-                        </button>
+                        <h3> Bienvenue dans Archive!</h3>
+                        <p>Consulter tout les dossiers finis.</p>
                     </div>
                     <div className="searchbar">
                         <form class="example" >
-                            <input type="text" placeholder="   Rechercher.." name="search2" />
+                            <input type="text" placeholder="Rechercher.." name="search2" />
                             <button type="submit" className="button"><FontAwesomeIcon icon={faSearch} className="icon" /></button>
                         </form>
                     </div>
                 </div>
 
                 <div className="titre-nouveau">
-                    <p className="titresec">Vos dossiers en cours:</p>
+                    <p className="titresec">Les dossiers finis:</p>
                     <div className="tri">
                         <p>Trier</p>
                         <span className="icon" onClick={() => settrier(trier => !trier)}>
@@ -102,26 +78,23 @@ const Milieu = ({ userInfo }) => {
                     <span>Numéro de dossier</span>
                     <span>Dernière modification</span>
                     <span>Date limite</span>
-                    <span>Avancement</span>
                     <span className="final">Formulaire</span>
                 </div>
 
                 {
                     Num.map((n) => {
-                        return <Dossier key={n} numDoss={n} done="60" datelim="02/06/2020" service={userInfo.service} role={userInfo.role} />
+                        return <Dossier key={n} numDoss={n} done="60" datelim="02/06/2020" />
                     })
                 }
                 {!x && (<div>
-                    <h5>vous n'avez aucun dossier en cours</h5>
+                    <h5>Y a pas de dossier a consulter</h5>
                 </div>)}
 
             </div>
 
 
         </div>
+    )
+}
 
-
-    );
-
-};
-export default Milieu;
+export default Milieu

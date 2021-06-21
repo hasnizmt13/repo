@@ -1,6 +1,8 @@
 import Hero from "./components/landing/Hero.js"
 import Sign from "./components/login/Sign.js"
 import Signup from "./components/signup/Form.js"
+import Archive from "./components/archive/Archive.js"
+import ArchiveForm from "./components/archive/ArchiveForm.js"
 // import Ad from "./components/Aide/Ad.js"
 // import Savoirplus from "./components/En-Savoir-Plus/Savoirplus"
 
@@ -19,6 +21,7 @@ function App() {
       <Router>
         <Switch>
           <Route exact path='/' exact component={Hero} />
+          <Route exact path='/Archive' exact component={Archive} />
           <Route exact path='/login' exact component={Sign} />
           <Route exact path='/signup' exact component={Signup} />
           
@@ -34,6 +37,8 @@ function App() {
           <Route exact path='/commande-form/:id' exact component={CommandeForm} />
           <Route exact path='/budget-form/:id' exact component={BudgetForm} />
           <Route exact path='/comptable-form/:id' exact component={ComptableForm} />
+
+          <Route exact path='/archive-form/:id' exact component={ArchiveForm} />
         </Switch>
       </Router>
       

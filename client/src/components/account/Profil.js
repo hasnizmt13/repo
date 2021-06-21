@@ -35,7 +35,6 @@ const Profil = () => {
     })
     
     var d = '/' +userInfo.service
-    console.log(d)
     return (
         <div className="profil-container">
             {

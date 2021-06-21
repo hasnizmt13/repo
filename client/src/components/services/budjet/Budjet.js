@@ -1,6 +1,6 @@
 import Header from "../commun/Header"
 import Droite from "../commun/Droite"
-import Footer from "../commun/Footer"
+import Footer from "../../landing/Footer.js"
 import Milieub from "./Milieub"
 import { useState, useEffect } from 'react'
 const Budjet = () => {

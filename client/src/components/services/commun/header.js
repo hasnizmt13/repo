@@ -7,7 +7,7 @@ import { faBars, faBell, faCaretDown, faTimes, faTimesCircle } from '@fortawesom
 import Pmenu from "./Pmenu"
 import Show from "./Show"
 import React, { useState, useEffect } from "react";
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import Navelem from './Navelem.js'
 import { useRef } from 'react'
 let useClickOutside = (handler1) => {
@@ -49,16 +49,16 @@ const Header = ({ userInfo, serviceinfo, num }) => {
 
                 <ul className="navbar1 navbar">
                     <li className="nav-el">
-                        <NavLink exact to={serviceinfo} className="link" activeClassName="active">Mon service</NavLink>
+                        <NavLink exact to={"../"+serviceinfo} className="link" activeClassName="active">Mon service</NavLink>
                     </li>
                     <li className="nav-el">
-                        <NavLink exact to='./Archive' className="link" activeClassName="active" >Archive</NavLink>
+                        <Link exact to='../Archive' className="link" activeClassName="active" >Archive</Link>
                     </li>
                     <li className="nav-el">
-                        <NavLink exact to='./Statistiques' className="link" activeClassName="active">Statistiques</NavLink>
+                        <NavLink exact to='../Statistiques' className="link" activeClassName="active">Statistiques</NavLink>
                     </li>
                     <li className="nav-el">
-                        <NavLink exact to='/Aide' className="link" activeClassName="active">Aide en ligne</NavLink>
+                        <NavLink exact to='../Aide' className="link" activeClassName="active">Aide en ligne</NavLink>
                     </li>
                 </ul>
                 <ul className="navbar2 navbar">

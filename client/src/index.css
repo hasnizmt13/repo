@@ -105,6 +105,7 @@ body .container .desc-container {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin-bottom: 150px;
 }
 
 body .container .desc-container .cont {
@@ -256,7 +257,6 @@ body .header .nav-container .navbar .log {
 }
 
 body .footer {
-  margin-top: 150px;
   width: 100%;
   background-color: #023047;
   height: 50vh;
